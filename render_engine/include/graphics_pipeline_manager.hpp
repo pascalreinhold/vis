@@ -18,7 +18,7 @@ namespace lab {
 
         void setShaderPaths(std::filesystem::path vertex_shader_path, std::filesystem::path fragment_shader_path);
 
-        template<VertexInterface T> // inl
+        template<VertexInterface T>
         void setVertexInputDescription() {
             m_vertex_input_binding_description = T::bindingDescriptions();
             m_vertex_input_attribute_description = T::attributeDescriptions();

@@ -82,6 +82,7 @@ namespace lab {
         if (m_enable_validation_layers) {
             m_required_instance_extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
             m_required_instance_layers.push_back("VK_LAYER_KHRONOS_validation");
+            m_required_instance_layers.push_back("VK_LAYER_KHRONOS_synchronization2");
         }
 
         m_required_device_extensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};

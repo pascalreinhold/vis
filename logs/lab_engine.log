@@ -2,6 +2,3 @@ ErrorLogger: Initialized
 Window: Initialized
 	: Name: My Window
 	: Size: 800x600
-GraphicsDevice: Initialized
-GraphicsPipelineManager: Initialized
-Swapchain: Initialized

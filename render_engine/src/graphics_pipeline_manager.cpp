@@ -140,7 +140,7 @@ namespace {
         vk::PipelineDynamicStateCreateInfo dynamic_state_create_info {{}, dynamic_states};
 
         vk::GraphicsPipelineCreateInfo pipeline_create_info {
-            {},
+            vk::PipelineCreateFlags(),
             shader_stage_info,
             &vertex_input_state_info,
             &config.m_input_assembly_state_create_info,
@@ -151,10 +151,10 @@ namespace {
             &config.m_depth_stencil_state_create_info,
             &config.m_color_blend_state_create_info,
             &dynamic_state_create_info,
-            getPipelineLayout(layout_handle),
+            getPipelineLayout(layout_handle), nullptr
         };
 
-        vk::PipelineRenderingCreateInfo pipeline_rendering_create_info {
+        vk::PipelineRenderingCreateInfo pipeline_rendering_create_info{
             0, 1, &config.m_color_format,
             config.m_depth_format, vk::Format::eUndefined};
         pipeline_create_info.pNext = &pipeline_rendering_create_info;

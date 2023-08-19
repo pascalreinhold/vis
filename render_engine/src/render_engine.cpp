@@ -49,6 +49,7 @@ namespace lab {
     RenderEngine::~RenderEngine() {
         m_graphics_device->get().waitIdle();
 
+        vmaUnmapMemory(m_graphics_device->allocator(), test_vertex_buffer.allocation);
         vmaDestroyBuffer(m_graphics_device->allocator(), test_vertex_buffer.buffer, test_vertex_buffer.allocation);
 
         for (auto& frame_data : m_frame_data) {
@@ -106,8 +107,8 @@ namespace lab {
         transitionSwapchainLayoutToColorAttachmentWrite(cmd, image_index);
 
         static std::array<float, 4> clear_color = {0.f, 0.f, 0.f, 1.f};
-        clear_color[0] = std::sinf(static_cast<float>(m_current_frame) / 10.f);
-        clear_color[1] = std::cosf(static_cast<float>(m_current_frame) / 10.f);
+        clear_color[0] = std::sinf(radians(static_cast<float>(m_current_frame)));
+        clear_color[1] = std::cosf(radians(static_cast<float>(m_current_frame)));
         auto color_attachment = m_swapchain->colorAttachmentInfo(image_index, vk::ClearColorValue{clear_color});
         auto depth_attachment = m_swapchain->depthAttachmentInfo();
 
@@ -118,6 +119,8 @@ namespace lab {
 
         // draw commands
         recordDrawCommands(cmd);
+        // let thread sleep for 10 ms
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
         // end command buffer recording and submit it
         cmd.endRendering();
@@ -227,7 +230,6 @@ namespace lab {
                 {{-0.5f, -0.5f, 0.5f}, {0.f, 1.f, 1.f}},
                 {{0.5f, -0.5f, 0.5f}, {1.f, 0.f, 1.f}}
         };
-        for(auto& vertex : vertices) vertex.position *= 10.f;
 
         AllocatedBuffer vertex_buffer{};
 
@@ -238,6 +240,12 @@ namespace lab {
         auto result = vmaCreateBuffer(m_graphics_device->allocator(),
                                       reinterpret_cast<const VkBufferCreateInfo *>(&buffer_create_info),
                                       &allocation_create_info, reinterpret_cast<VkBuffer*>(&vertex_buffer.buffer), &vertex_buffer.allocation, nullptr);
+
+        // write data to buffer
+        void *data;
+        vmaMapMemory(m_graphics_device->allocator(), vertex_buffer.allocation, &data);
+        memcpy(data, vertices.data(), sizeof(Vertex) * vertices.size());
+
         if(result != VK_SUCCESS) {
             ErrorLogger::logFatalError("Engine", "Failed to create vertex buffer");
         }

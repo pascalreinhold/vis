@@ -117,12 +117,12 @@
 			"id" : "glfw::@d5fdcda1ec52eb23cf38"
 		},
 		{
-			"backtrace" : 2,
-			"id" : "render_engine_lib::@44abf09de5b39b97f631"
-		},
-		{
 			"backtrace" : 6,
 			"id" : "shaders::@8132085bf3b90c3252db"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "render_engine_lib::@44abf09de5b39b97f631"
 		}
 	],
 	"id" : "render_engine_app::@5f5a17c01335469806cb",
