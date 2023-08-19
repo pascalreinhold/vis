@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="render_engine"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\third_party\glfw\;CMake Files\third_party\glfw\CMake\;CMake Files\third_party\glfw\src\;CMake Files\third_party\vulkan_memory_allocator\;CMake Files\third_party\glm\;CMake Files\third_party\glm\glm\;CMake Files\render_engine\;CMake Files\shaders\;CMake Files\app\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/code/lab/cmake-build-mingw/render_engine"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="render_engine_lib">
+				<Option output="C:/code/lab/cmake-build-mingw/render_engine/librender_engine_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/code/lab/cmake-build-mingw/render_engine"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/code/lab/render_engine/include"/>
+					<Add directory="C:/code/lab/third_party/glfw/include"/>
+					<Add directory="C:/code/lab/third_party/vulkan_memory_allocator/include"/>
+					<Add directory="C:/code/lab/third_party/glm"/>
+					<Add directory="C:/VulkanSDK/1.3.250.1/Include"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="/mingw/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 render_engine_lib"/>
+					<CompileFile command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="render_engine_lib/fast">
+				<Option output="C:/code/lab/cmake-build-mingw/render_engine/librender_engine_lib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/code/lab/cmake-build-mingw/render_engine"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/code/lab/render_engine/include"/>
+					<Add directory="C:/code/lab/third_party/glfw/include"/>
+					<Add directory="C:/code/lab/third_party/vulkan_memory_allocator/include"/>
+					<Add directory="C:/code/lab/third_party/glm"/>
+					<Add directory="C:/VulkanSDK/1.3.250.1/Include"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="/mingw/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 render_engine_lib/fast"/>
+					<CompileFile command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/render_engine/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/code/lab/render_engine/src/error_logger.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/src/graphics_device.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/src/graphics_pipeline_manager.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/src/math.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/src/render_engine.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/src/swapchain.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/src/window.cpp">
+			<Option target="render_engine_lib"/>
+		</Unit>
+		<Unit filename="C:/code/lab/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glfw\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\glfw\CMake\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMake/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\third_party\glfw\CMake\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMake/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\glfw\CMake\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glfw\src\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/vulkan_memory_allocator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\vulkan_memory_allocator\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glm\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glm/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glm\glm\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\render_engine\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/shaders/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\shaders\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/app/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\app\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

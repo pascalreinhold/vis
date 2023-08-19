@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="VMA"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\third_party\glfw\;CMake Files\third_party\glfw\CMake\;CMake Files\third_party\glfw\src\;CMake Files\third_party\vulkan_memory_allocator\;CMake Files\third_party\glm\;CMake Files\third_party\glm\glm\;CMake Files\render_engine\;CMake Files\shaders\;CMake Files\app\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/code/lab/cmake-build-mingw/third_party/vulkan_memory_allocator"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/third_party/vulkan_memory_allocator/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/third_party/vulkan_memory_allocator/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/third_party/vulkan_memory_allocator/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/ich/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/mingw32-make.exe -f &quot;C:/code/lab/cmake-build-mingw/third_party/vulkan_memory_allocator/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/code/lab/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glfw\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\glfw\CMake\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMake/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\third_party\glfw\CMake\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/CMake/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\glfw\CMake\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glfw/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glfw\src\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/vulkan_memory_allocator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\vulkan_memory_allocator\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glm\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/glm/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\glm\glm\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/render_engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\render_engine\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/shaders/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\shaders\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/app/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\app\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,6 @@
+C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\code\lab -B C:\code\lab\cmake-build-mingw
+-- Including Win32 support
+-- GLM: Version 0.9.9.9
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/code/lab/cmake-build-mingw

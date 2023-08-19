@@ -1,0 +1,12 @@
+Changelog
+
+Version 0.0.0 [2023-08-05] : Initial release
+    - first (temporary) project structure
+    - render engine and window classes
+    - including GLFW and Vulkan SDK
+
+Version 0.0.1 [2023-08-17] : First triangle slowly getting there
+    - swapchain and error logger classes
+    - should the swapchain be owned by the device? (the swapchain depends on the existence of the device)
+    - creating a pipeline manager class
+    - ripped out the render pass and frame buffer -> we use dynamic rendering now
