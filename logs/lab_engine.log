@@ -1,4 +1,50 @@
 ErrorLogger: Initialized
+Keyboard: Initialized
+Mouse: Initialized
 Window: Initialized
 	: Name: My Window
 	: Size: 800x600
+GraphicsDevice: Initialized
+GraphicsPipelineManager: Initialized
+Swapchain: Initialized
+GpuResourceManager: GpuResourceManager created
+Buffer: Buffer created
+BufferResource: BufferResource created
+Buffer: Buffer created
+BufferResource: BufferResource created
+Buffer: Buffer destroyed
+BufferResource: BufferResource destroyed
+BufferResource: BufferResource created
+Buffer: Buffer created
+BufferResource: BufferResource created
+Buffer: Buffer destroyed
+BufferResource: BufferResource destroyed
+Buffer: Buffer created
+BufferResource: BufferResource created
+Buffer: Buffer created
+BufferResource: BufferResource created
+Buffer: Buffer destroyed
+BufferResource: BufferResource destroyed
+BufferResource: BufferResource created
+Buffer: Buffer created
+BufferResource: BufferResource created
+Buffer: Buffer destroyed
+BufferResource: BufferResource destroyed
+GuiManager: Initialized
+Engine: Initialized
+Engine: Destroyed
+GuiManager: Destroyed
+GraphicsPipelineManager: Destroyed
+Swapchain: Destroyed
+BufferResource: BufferResource destroyed
+Buffer: Buffer destroyed
+BufferResource: BufferResource destroyed
+BufferResource: BufferResource destroyed
+Buffer: Buffer destroyed
+BufferResource: BufferResource destroyed
+GpuResourceManager: GpuResourceManager destroyed
+GraphicsDevice: Destroyed
+Window: Destroyed
+Mouse: Destroyed
+Keyboard: Destroyed
+ErrorLogger: Destroyed

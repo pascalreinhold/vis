@@ -32,6 +32,11 @@ namespace {
         m_fragment_shader_path = std::move(fragment_shader_path);
     }
 
+    void GraphicsPipelineConfig::setVertexInputDescriptionEmpty() {
+        m_vertex_input_binding_description = {};
+        m_vertex_input_attribute_description = {};
+    }
+
     void GraphicsPipelineConfig::setInputAssemblyStateCreateInfo(
             vk::PrimitiveTopology topology, bool primitive_restart_enable) {
         m_input_assembly_state_create_info = vk::PipelineInputAssemblyStateCreateInfo{
@@ -41,7 +46,8 @@ namespace {
     void GraphicsPipelineConfig::setDepthStencilStateCreateInfo(bool depth_test_enable, bool depth_write_enable,
                                                                 vk::CompareOp depth_compare_op) {
     m_depth_stencil_state_create_info = vk::PipelineDepthStencilStateCreateInfo{
-            {}, depth_test_enable,depth_write_enable,depth_compare_op};
+            {}, depth_test_enable,depth_write_enable,
+            depth_compare_op,VK_FALSE, VK_FALSE};
     }
 
     void GraphicsPipelineConfig::setRasterizationStateCreateInfo(vk::PolygonMode polygon_mode, vk::CullModeFlags cull_mode,
@@ -73,12 +79,12 @@ namespace {
             vk::BlendOp color_blend_op, vk::BlendFactor src_alpha_blend_factor, vk::BlendFactor dst_alpha_blend_factor,
             vk::BlendOp alpha_blend_op, vk::ColorComponentFlags color_write_mask) {
 
-        vk::PipelineColorBlendAttachmentState color_blend_attachment_state {
+        m_color_blend_attachment_state = vk::PipelineColorBlendAttachmentState{
             blend_enable, src_color_blend_factor, dst_color_blend_factor,
             color_blend_op, src_alpha_blend_factor, dst_alpha_blend_factor,
             alpha_blend_op, color_write_mask};
         m_color_blend_state_create_info = vk::PipelineColorBlendStateCreateInfo{
-                {}, false, vk::LogicOp::eCopy, 1, &color_blend_attachment_state
+                {}, false, vk::LogicOp::eCopy, m_color_blend_attachment_state
         };
     }
 
@@ -154,9 +160,9 @@ namespace {
             getPipelineLayout(layout_handle), nullptr
         };
 
-        vk::PipelineRenderingCreateInfo pipeline_rendering_create_info{
+        vk::PipelineRenderingCreateInfoKHR pipeline_rendering_create_info{
             0, 1, &config.m_color_format,
-            config.m_depth_format, vk::Format::eUndefined};
+            config.m_depth_stencil_format, config.m_depth_stencil_format};
         pipeline_create_info.pNext = &pipeline_rendering_create_info;
 
         auto result_pipeline = m_device->get().createGraphicsPipeline(nullptr, pipeline_create_info);

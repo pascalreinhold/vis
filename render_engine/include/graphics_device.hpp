@@ -1,16 +1,20 @@
 #pragma once
 
-#include "vulkan_types.hpp"
+#include "vulkan_include.hpp"
+#include <vk_mem_alloc.h>
 
 #include <array>
 #include <functional>
 #include <iostream>
 #include <vector>
+#include <functional>
+#include <memory>
 
 namespace lab {
 
     // Forward declaration
     class Window;
+    class GpuResourceManager;
 
     enum QueueType {
         eGraphics = 0,
@@ -24,6 +28,18 @@ namespace lab {
         vk::Queue queue;
     };
 
+    struct AllocatedImage {
+        vk::Image image{};
+        vk::ImageView image_view{};
+        VmaAllocation allocation{};
+    };
+
+    struct UploadContext {
+        vk::Fence upload_fence;
+        vk::CommandPool command_pool;
+        vk::CommandBuffer command_buffer;
+    };
+
     class GraphicsDevice {
     public:
         explicit GraphicsDevice(const std::unique_ptr<Window>& window);
@@ -31,9 +47,12 @@ namespace lab {
 
         [[nodiscard]] vk::Device get() const { return m_device; }
         [[nodiscard]] vk::PhysicalDevice physicalDevice() const { return m_physical_device; }
+        [[nodiscard]] vk::Instance instance() const { return m_instance; }
         [[nodiscard]] vk::SurfaceKHR surface() const { return m_surface; }
-        [[nodiscard]] VmaAllocator allocator() const { return m_allocator; }
+        [[nodiscard]] VmaAllocator allocator() const { return m_allocator; };
         [[nodiscard]] const DeviceQueue& queue(QueueType queue_type) const { return m_device_queues[queue_type]; }
+
+        void immediateSubmit(std::function<void(vk::CommandBuffer cmd)> &&function) const;
 
         // dont copy or move graphics devices
         GraphicsDevice(const GraphicsDevice &) = delete;
@@ -43,20 +62,20 @@ namespace lab {
 
     private:
         [[nodiscard]] vk::Instance createInstance() const;
-        [[nodiscard]] VmaAllocator createAllocator() const;
         [[nodiscard]] vk::DebugUtilsMessengerEXT createDebugMessenger() const;
         [[nodiscard]] vk::PhysicalDevice pickPhysicalDevice() const;
         [[nodiscard]] std::array<uint32_t, 4> getQueueFamilyIndices() const;
-        [[nodiscard]] std::pair<vk::Device, std::array<vk::Queue, 4>>
-        createDeviceAndQueues() const;
+        [[nodiscard]] std::pair<vk::Device, std::array<vk::Queue, 4>> createDeviceAndQueues() const;
+        [[nodiscard]] VmaAllocator createAllocator() const;
 
         vk::Instance m_instance{};
-        VmaAllocator m_allocator{};
         vk::DebugUtilsMessengerEXT m_debug_messenger{};
         vk::PhysicalDevice m_physical_device{};
         std::array<DeviceQueue, 4> m_device_queues{};
         vk::SurfaceKHR m_surface{};
         vk::Device m_device{};
+        VmaAllocator m_allocator{};
+        UploadContext m_upload_context{};
 
         std::vector<const char *> m_required_instance_layers{};
         std::vector<const char *> m_required_instance_extensions{};

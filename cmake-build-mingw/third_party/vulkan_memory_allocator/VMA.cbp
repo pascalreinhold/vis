@@ -5,7 +5,7 @@
 		<Option title="VMA"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\third_party\glfw\;CMake Files\third_party\glfw\CMake\;CMake Files\third_party\glfw\src\;CMake Files\third_party\vulkan_memory_allocator\;CMake Files\third_party\glm\;CMake Files\third_party\glm\glm\;CMake Files\render_engine\;CMake Files\shaders\;CMake Files\app\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\third_party\assimp\;CMake Files\third_party\assimp\cmake-modules\;CMake Files\third_party\assimp\include\;CMake Files\third_party\assimp\include\assimp\;CMake Files\third_party\assimp\contrib\;CMake Files\third_party\assimp\contrib\zlib\;CMake Files\third_party\assimp\code\;CMake Files\third_party\glfw\;CMake Files\third_party\glfw\CMake\;CMake Files\third_party\glfw\src\;CMake Files\third_party\vulkan_memory_allocator\;CMake Files\third_party\glm\;CMake Files\third_party\glm\glm\;CMake Files\third_party\meshoptimizer\;CMake Files\render_engine\;CMake Files\shaders\;CMake Files\app\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/code/lab/cmake-build-mingw/third_party/vulkan_memory_allocator"/>
@@ -23,6 +23,39 @@
 		</Unit>
 		<Unit filename="C:/code/lab/third_party/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\third_party\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\assimp\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/assimp.pc.in">
+			<Option virtualFolder="CMake Files\third_party\assimp\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/revision.h.in">
+			<Option virtualFolder="CMake Files\third_party\assimp\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/cmake-modules/FindPkgMacros.cmake">
+			<Option virtualFolder="CMake Files\third_party\assimp\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/cmake-modules/PrecompiledHeader.cmake">
+			<Option virtualFolder="CMake Files\third_party\assimp\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/cmake-modules/assimp-plain-config.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\assimp\cmake-modules\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/include/assimp/config.h.in">
+			<Option virtualFolder="CMake Files\third_party\assimp\include\assimp\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/contrib/zlib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\assimp\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/contrib/zlib/zconf.h.cmakein">
+			<Option virtualFolder="CMake Files\third_party\assimp\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/contrib/zlib/zlib.pc.cmakein">
+			<Option virtualFolder="CMake Files\third_party\assimp\contrib\zlib\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/assimp/code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\assimp\code\"/>
 		</Unit>
 		<Unit filename="C:/code/lab/third_party/glfw/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\third_party\glfw\"/>
@@ -47,6 +80,12 @@
 		</Unit>
 		<Unit filename="C:/code/lab/third_party/glm/glm/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\third_party\glm\glm\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/meshoptimizer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\meshoptimizer\"/>
+		</Unit>
+		<Unit filename="C:/code/lab/third_party/meshoptimizer/config.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\meshoptimizer\"/>
 		</Unit>
 		<Unit filename="C:/code/lab/render_engine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\render_engine\"/>

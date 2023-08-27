@@ -86,7 +86,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"assimp-dev\" \"libassimp5.2.5-dev\" \"meshoptimizer\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -161,6 +161,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named stb
+
+# Build rule for target.
+stb: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 stb
+.PHONY : stb
+
+# fast build rule for target.
+stb/fast:
+	$(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\stb.dir\build.make third_party/CMakeFiles/stb.dir/build
+.PHONY : stb/fast
+
+#=============================================================================
+# Target rules for targets named imgui
+
+# Build rule for target.
+imgui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 imgui
+.PHONY : imgui
+
+# fast build rule for target.
+imgui/fast:
+	$(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/build
+.PHONY : imgui/fast
+
+#=============================================================================
 # Target rules for targets named uninstall
 
 # Build rule for target.
@@ -198,6 +224,45 @@ update_mappings: cmake_check_build_system
 update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f third_party\glfw\src\CMakeFiles\update_mappings.dir\build.make third_party/glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
+
+#=============================================================================
+# Target rules for targets named meshoptimizer
+
+# Build rule for target.
+meshoptimizer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 meshoptimizer
+.PHONY : meshoptimizer
+
+# fast build rule for target.
+meshoptimizer/fast:
+	$(MAKE) $(MAKESILENT) -f third_party\meshoptimizer\CMakeFiles\meshoptimizer.dir\build.make third_party/meshoptimizer/CMakeFiles/meshoptimizer.dir/build
+.PHONY : meshoptimizer/fast
+
+#=============================================================================
+# Target rules for targets named zlibstatic
+
+# Build rule for target.
+zlibstatic: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 zlibstatic
+.PHONY : zlibstatic
+
+# fast build rule for target.
+zlibstatic/fast:
+	$(MAKE) $(MAKESILENT) -f third_party\assimp\contrib\zlib\CMakeFiles\zlibstatic.dir\build.make third_party/assimp/contrib/zlib/CMakeFiles/zlibstatic.dir/build
+.PHONY : zlibstatic/fast
+
+#=============================================================================
+# Target rules for targets named assimp
+
+# Build rule for target.
+assimp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 assimp
+.PHONY : assimp
+
+# fast build rule for target.
+assimp/fast:
+	$(MAKE) $(MAKESILENT) -f third_party\assimp\code\CMakeFiles\assimp.dir\build.make third_party/assimp/code/CMakeFiles/assimp.dir/build
+.PHONY : assimp/fast
 
 #=============================================================================
 # Target rules for targets named render_engine_lib
@@ -253,9 +318,14 @@ help:
 	@echo ... shaders
 	@echo ... uninstall
 	@echo ... update_mappings
+	@echo ... assimp
 	@echo ... glfw
+	@echo ... imgui
+	@echo ... meshoptimizer
 	@echo ... render_engine_app
 	@echo ... render_engine_lib
+	@echo ... stb
+	@echo ... zlibstatic
 .PHONY : help
 
 

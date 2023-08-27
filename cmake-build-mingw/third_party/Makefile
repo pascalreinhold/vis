@@ -86,7 +86,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"assimp-dev\" \"libassimp5.2.5-dev\" \"meshoptimizer\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -160,6 +160,226 @@ depend:
 	cd /d C:\code\lab\cmake-build-mingw && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+third_party/CMakeFiles/stb.dir/rule:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 third_party/CMakeFiles/stb.dir/rule
+.PHONY : third_party/CMakeFiles/stb.dir/rule
+
+# Convenience name for target.
+stb: third_party/CMakeFiles/stb.dir/rule
+.PHONY : stb
+
+# fast build rule for target.
+stb/fast:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\stb.dir\build.make third_party/CMakeFiles/stb.dir/build
+.PHONY : stb/fast
+
+# Convenience name for target.
+third_party/CMakeFiles/imgui.dir/rule:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 third_party/CMakeFiles/imgui.dir/rule
+.PHONY : third_party/CMakeFiles/imgui.dir/rule
+
+# Convenience name for target.
+imgui: third_party/CMakeFiles/imgui.dir/rule
+.PHONY : imgui
+
+# fast build rule for target.
+imgui/fast:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/build
+.PHONY : imgui/fast
+
+imgui/backends/imgui_impl_glfw.obj: imgui/backends/imgui_impl_glfw.cpp.obj
+.PHONY : imgui/backends/imgui_impl_glfw.obj
+
+# target to build an object file
+imgui/backends/imgui_impl_glfw.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/backends/imgui_impl_glfw.cpp.obj
+.PHONY : imgui/backends/imgui_impl_glfw.cpp.obj
+
+imgui/backends/imgui_impl_glfw.i: imgui/backends/imgui_impl_glfw.cpp.i
+.PHONY : imgui/backends/imgui_impl_glfw.i
+
+# target to preprocess a source file
+imgui/backends/imgui_impl_glfw.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/backends/imgui_impl_glfw.cpp.i
+.PHONY : imgui/backends/imgui_impl_glfw.cpp.i
+
+imgui/backends/imgui_impl_glfw.s: imgui/backends/imgui_impl_glfw.cpp.s
+.PHONY : imgui/backends/imgui_impl_glfw.s
+
+# target to generate assembly for a file
+imgui/backends/imgui_impl_glfw.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/backends/imgui_impl_glfw.cpp.s
+.PHONY : imgui/backends/imgui_impl_glfw.cpp.s
+
+imgui/backends/imgui_impl_vulkan.obj: imgui/backends/imgui_impl_vulkan.cpp.obj
+.PHONY : imgui/backends/imgui_impl_vulkan.obj
+
+# target to build an object file
+imgui/backends/imgui_impl_vulkan.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/backends/imgui_impl_vulkan.cpp.obj
+.PHONY : imgui/backends/imgui_impl_vulkan.cpp.obj
+
+imgui/backends/imgui_impl_vulkan.i: imgui/backends/imgui_impl_vulkan.cpp.i
+.PHONY : imgui/backends/imgui_impl_vulkan.i
+
+# target to preprocess a source file
+imgui/backends/imgui_impl_vulkan.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/backends/imgui_impl_vulkan.cpp.i
+.PHONY : imgui/backends/imgui_impl_vulkan.cpp.i
+
+imgui/backends/imgui_impl_vulkan.s: imgui/backends/imgui_impl_vulkan.cpp.s
+.PHONY : imgui/backends/imgui_impl_vulkan.s
+
+# target to generate assembly for a file
+imgui/backends/imgui_impl_vulkan.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/backends/imgui_impl_vulkan.cpp.s
+.PHONY : imgui/backends/imgui_impl_vulkan.cpp.s
+
+imgui/imgui.obj: imgui/imgui.cpp.obj
+.PHONY : imgui/imgui.obj
+
+# target to build an object file
+imgui/imgui.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui.cpp.obj
+.PHONY : imgui/imgui.cpp.obj
+
+imgui/imgui.i: imgui/imgui.cpp.i
+.PHONY : imgui/imgui.i
+
+# target to preprocess a source file
+imgui/imgui.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui.cpp.i
+.PHONY : imgui/imgui.cpp.i
+
+imgui/imgui.s: imgui/imgui.cpp.s
+.PHONY : imgui/imgui.s
+
+# target to generate assembly for a file
+imgui/imgui.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui.cpp.s
+.PHONY : imgui/imgui.cpp.s
+
+imgui/imgui_demo.obj: imgui/imgui_demo.cpp.obj
+.PHONY : imgui/imgui_demo.obj
+
+# target to build an object file
+imgui/imgui_demo.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.obj
+.PHONY : imgui/imgui_demo.cpp.obj
+
+imgui/imgui_demo.i: imgui/imgui_demo.cpp.i
+.PHONY : imgui/imgui_demo.i
+
+# target to preprocess a source file
+imgui/imgui_demo.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.i
+.PHONY : imgui/imgui_demo.cpp.i
+
+imgui/imgui_demo.s: imgui/imgui_demo.cpp.s
+.PHONY : imgui/imgui_demo.s
+
+# target to generate assembly for a file
+imgui/imgui_demo.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_demo.cpp.s
+.PHONY : imgui/imgui_demo.cpp.s
+
+imgui/imgui_draw.obj: imgui/imgui_draw.cpp.obj
+.PHONY : imgui/imgui_draw.obj
+
+# target to build an object file
+imgui/imgui_draw.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.obj
+.PHONY : imgui/imgui_draw.cpp.obj
+
+imgui/imgui_draw.i: imgui/imgui_draw.cpp.i
+.PHONY : imgui/imgui_draw.i
+
+# target to preprocess a source file
+imgui/imgui_draw.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.i
+.PHONY : imgui/imgui_draw.cpp.i
+
+imgui/imgui_draw.s: imgui/imgui_draw.cpp.s
+.PHONY : imgui/imgui_draw.s
+
+# target to generate assembly for a file
+imgui/imgui_draw.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_draw.cpp.s
+.PHONY : imgui/imgui_draw.cpp.s
+
+imgui/imgui_tables.obj: imgui/imgui_tables.cpp.obj
+.PHONY : imgui/imgui_tables.obj
+
+# target to build an object file
+imgui/imgui_tables.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_tables.cpp.obj
+.PHONY : imgui/imgui_tables.cpp.obj
+
+imgui/imgui_tables.i: imgui/imgui_tables.cpp.i
+.PHONY : imgui/imgui_tables.i
+
+# target to preprocess a source file
+imgui/imgui_tables.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_tables.cpp.i
+.PHONY : imgui/imgui_tables.cpp.i
+
+imgui/imgui_tables.s: imgui/imgui_tables.cpp.s
+.PHONY : imgui/imgui_tables.s
+
+# target to generate assembly for a file
+imgui/imgui_tables.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_tables.cpp.s
+.PHONY : imgui/imgui_tables.cpp.s
+
+imgui/imgui_widgets.obj: imgui/imgui_widgets.cpp.obj
+.PHONY : imgui/imgui_widgets.obj
+
+# target to build an object file
+imgui/imgui_widgets.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_widgets.cpp.obj
+.PHONY : imgui/imgui_widgets.cpp.obj
+
+imgui/imgui_widgets.i: imgui/imgui_widgets.cpp.i
+.PHONY : imgui/imgui_widgets.i
+
+# target to preprocess a source file
+imgui/imgui_widgets.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_widgets.cpp.i
+.PHONY : imgui/imgui_widgets.cpp.i
+
+imgui/imgui_widgets.s: imgui/imgui_widgets.cpp.s
+.PHONY : imgui/imgui_widgets.s
+
+# target to generate assembly for a file
+imgui/imgui_widgets.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\imgui.dir\build.make third_party/CMakeFiles/imgui.dir/imgui/imgui_widgets.cpp.s
+.PHONY : imgui/imgui_widgets.cpp.s
+
+stb/stb_image.obj: stb/stb_image.cpp.obj
+.PHONY : stb/stb_image.obj
+
+# target to build an object file
+stb/stb_image.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\stb.dir\build.make third_party/CMakeFiles/stb.dir/stb/stb_image.cpp.obj
+.PHONY : stb/stb_image.cpp.obj
+
+stb/stb_image.i: stb/stb_image.cpp.i
+.PHONY : stb/stb_image.i
+
+# target to preprocess a source file
+stb/stb_image.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\stb.dir\build.make third_party/CMakeFiles/stb.dir/stb/stb_image.cpp.i
+.PHONY : stb/stb_image.cpp.i
+
+stb/stb_image.s: stb/stb_image.cpp.s
+.PHONY : stb/stb_image.s
+
+# target to generate assembly for a file
+stb/stb_image.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f third_party\CMakeFiles\stb.dir\build.make third_party/CMakeFiles/stb.dir/stb/stb_image.cpp.s
+.PHONY : stb/stb_image.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -172,6 +392,32 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... imgui
+	@echo ... stb
+	@echo ... imgui/backends/imgui_impl_glfw.obj
+	@echo ... imgui/backends/imgui_impl_glfw.i
+	@echo ... imgui/backends/imgui_impl_glfw.s
+	@echo ... imgui/backends/imgui_impl_vulkan.obj
+	@echo ... imgui/backends/imgui_impl_vulkan.i
+	@echo ... imgui/backends/imgui_impl_vulkan.s
+	@echo ... imgui/imgui.obj
+	@echo ... imgui/imgui.i
+	@echo ... imgui/imgui.s
+	@echo ... imgui/imgui_demo.obj
+	@echo ... imgui/imgui_demo.i
+	@echo ... imgui/imgui_demo.s
+	@echo ... imgui/imgui_draw.obj
+	@echo ... imgui/imgui_draw.i
+	@echo ... imgui/imgui_draw.s
+	@echo ... imgui/imgui_tables.obj
+	@echo ... imgui/imgui_tables.i
+	@echo ... imgui/imgui_tables.s
+	@echo ... imgui/imgui_widgets.obj
+	@echo ... imgui/imgui_widgets.i
+	@echo ... imgui/imgui_widgets.s
+	@echo ... stb/stb_image.obj
+	@echo ... stb/stb_image.i
+	@echo ... stb/stb_image.s
 .PHONY : help
 
 

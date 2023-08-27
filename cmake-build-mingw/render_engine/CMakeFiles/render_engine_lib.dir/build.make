@@ -68,11 +68,26 @@ include render_engine/CMakeFiles/render_engine_lib.dir/progress.make
 # Include the compile flags for this target's objects.
 include render_engine/CMakeFiles/render_engine_lib.dir/flags.make
 
+render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
+render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
+render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj: C:/code/lab/render_engine/src/camera.cpp
+render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\camera.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\camera.cpp.obj -c C:\code\lab\render_engine\src\camera.cpp
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine_lib.dir/src/camera.cpp.i"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\code\lab\render_engine\src\camera.cpp > CMakeFiles\render_engine_lib.dir\src\camera.cpp.i
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/camera.cpp.s"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\camera.cpp -o CMakeFiles\render_engine_lib.dir\src\camera.cpp.s
+
 render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
 render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj: C:/code/lab/render_engine/src/error_logger.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\error_logger.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\error_logger.cpp.obj -c C:\code\lab\render_engine\src\error_logger.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.i: cmake_force
@@ -87,7 +102,7 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj: rend
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj: C:/code/lab/render_engine/src/graphics_device.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\graphics_device.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\graphics_device.cpp.obj -c C:\code\lab\render_engine\src\graphics_device.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.i: cmake_force
@@ -102,7 +117,7 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj: C:/code/lab/render_engine/src/graphics_pipeline_manager.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\graphics_pipeline_manager.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\graphics_pipeline_manager.cpp.obj -c C:\code\lab\render_engine\src\graphics_pipeline_manager.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.i: cmake_force
@@ -113,11 +128,26 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.s"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\graphics_pipeline_manager.cpp -o CMakeFiles\render_engine_lib.dir\src\graphics_pipeline_manager.cpp.s
 
+render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
+render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
+render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj: C:/code/lab/render_engine/src/gpu_resource_manager.cpp
+render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\gpu_resource_manager.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\gpu_resource_manager.cpp.obj -c C:\code\lab\render_engine\src\gpu_resource_manager.cpp
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.i"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\code\lab\render_engine\src\gpu_resource_manager.cpp > CMakeFiles\render_engine_lib.dir\src\gpu_resource_manager.cpp.i
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.s"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\gpu_resource_manager.cpp -o CMakeFiles\render_engine_lib.dir\src\gpu_resource_manager.cpp.s
+
 render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
 render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj: C:/code/lab/render_engine/src/math.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\math.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\math.cpp.obj -c C:\code\lab\render_engine\src\math.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.i: cmake_force
@@ -128,11 +158,26 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/math.cpp.s"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\math.cpp -o CMakeFiles\render_engine_lib.dir\src\math.cpp.s
 
+render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
+render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
+render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj: C:/code/lab/render_engine/src/model.cpp
+render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\model.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\model.cpp.obj -c C:\code\lab\render_engine\src\model.cpp
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine_lib.dir/src/model.cpp.i"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\code\lab\render_engine\src\model.cpp > CMakeFiles\render_engine_lib.dir\src\model.cpp.i
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/model.cpp.s"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\model.cpp -o CMakeFiles\render_engine_lib.dir\src\model.cpp.s
+
 render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
 render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj: C:/code/lab/render_engine/src/render_engine.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\render_engine.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\render_engine.cpp.obj -c C:\code\lab\render_engine\src\render_engine.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.i: cmake_force
@@ -147,7 +192,7 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj: render_eng
 render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj: C:/code/lab/render_engine/src/swapchain.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\swapchain.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\swapchain.cpp.obj -c C:\code\lab\render_engine\src\swapchain.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.i: cmake_force
@@ -158,11 +203,26 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.s"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\swapchain.cpp -o CMakeFiles\render_engine_lib.dir\src\swapchain.cpp.s
 
+render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
+render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
+render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj: C:/code/lab/render_engine/src/vma_implementation.cpp
+render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\vma_implementation.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\vma_implementation.cpp.obj -c C:\code\lab\render_engine\src\vma_implementation.cpp
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.i"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\code\lab\render_engine\src\vma_implementation.cpp > CMakeFiles\render_engine_lib.dir\src\vma_implementation.cpp.i
+
+render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.s"
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\code\lab\render_engine\src\vma_implementation.cpp -o CMakeFiles\render_engine_lib.dir\src\vma_implementation.cpp.s
+
 render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/flags.make
 render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/includes_CXX.rsp
 render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj: C:/code/lab/render_engine/src/window.cpp
 render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj: render_engine/CMakeFiles/render_engine_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj -MF CMakeFiles\render_engine_lib.dir\src\window.cpp.obj.d -o CMakeFiles\render_engine_lib.dir\src\window.cpp.obj -c C:\code\lab\render_engine\src\window.cpp
 
 render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.i: cmake_force
@@ -175,32 +235,41 @@ render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.s: cmake_force
 
 # Object files for target render_engine_lib
 render_engine_lib_OBJECTS = \
+"CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj" \
+"CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/math.cpp.obj" \
+"CMakeFiles/render_engine_lib.dir/src/model.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj" \
+"CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj" \
 "CMakeFiles/render_engine_lib.dir/src/window.cpp.obj"
 
 # External object files for target render_engine_lib
 render_engine_lib_EXTERNAL_OBJECTS =
 
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/build.make
-render_engine/librender_engine_lib.a: render_engine/CMakeFiles/render_engine_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library librender_engine_lib.a"
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_device.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/graphics_pipeline_manager.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/render_engine.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/src/window.cpp.obj
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/build.make
+render_engine/librender_engine_libd.a: render_engine/CMakeFiles/render_engine_lib.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX static library librender_engine_libd.a"
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && $(CMAKE_COMMAND) -P CMakeFiles\render_engine_lib.dir\cmake_clean_target.cmake
 	cd /d C:\code\lab\cmake-build-mingw\render_engine && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\render_engine_lib.dir\link.txt --verbose=$(VERBOSE)
+	cd /d C:\code\lab\cmake-build-mingw\render_engine && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -E copy_directory C:/code/lab/assets C:/code/lab/cmake-build-mingw/out/assets
 
 # Rule to build all files generated by this target.
-render_engine/CMakeFiles/render_engine_lib.dir/build: render_engine/librender_engine_lib.a
+render_engine/CMakeFiles/render_engine_lib.dir/build: render_engine/librender_engine_libd.a
 .PHONY : render_engine/CMakeFiles/render_engine_lib.dir/build
 
 render_engine/CMakeFiles/render_engine_lib.dir/clean:

@@ -1,0 +1,11 @@
+Model Information:
+* title:	The Alduin Dragon
+* source:	https://sketchfab.com/3d-models/the-alduin-dragon-dd04d9599a2d40b49a26d197b12b475c
+* author:	CGreature (https://sketchfab.com/CGreature)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "The Alduin Dragon" (https://sketchfab.com/3d-models/the-alduin-dragon-dd04d9599a2d40b49a26d197b12b475c) by CGreature (https://sketchfab.com/CGreature) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

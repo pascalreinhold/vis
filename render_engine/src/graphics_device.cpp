@@ -1,11 +1,10 @@
 #include "graphics_device.hpp"
+VULKAN_HPP_DEFAULT_DISPATCH_LOADER_DYNAMIC_STORAGE
+
+#include "gpu_resource_manager.hpp"
 #include "error_logger.hpp"
 #include "window.hpp"
 
-#define VMA_IMPLEMENTATION
-#include <vk_mem_alloc.h>
-
-#include <iostream>
 #include <set>
 #include <utility>
 
@@ -51,30 +50,11 @@ namespace lab {
         return VK_FALSE;
     }
 
-    VkResult CreateDebugUtilsMessengerEXT(
-            VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo,
-            const VkAllocationCallbacks *pAllocator,
-            VkDebugUtilsMessengerEXT *pDebugMessenger) {
-        auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(
-                instance, "vkCreateDebugUtilsMessengerEXT");
-        if (func != nullptr) {
-            return func(instance, pCreateInfo, pAllocator, pDebugMessenger);
-        } else {
-            return VK_ERROR_EXTENSION_NOT_PRESENT;
-        }
-    }
-
-    void DestroyDebugUtilsMessengerEXT(VkInstance instance,
-                                       VkDebugUtilsMessengerEXT debugMessenger,
-                                       const VkAllocationCallbacks *pAllocator) {
-        auto func = (PFN_vkDestroyDebugUtilsMessengerEXT) vkGetInstanceProcAddr(
-                instance, "vkDestroyDebugUtilsMessengerEXT");
-        if (func != nullptr) {
-            func(instance, debugMessenger, pAllocator);
-        }
-    }
-
     GraphicsDevice::GraphicsDevice(const std::unique_ptr<Window>& window) {
+
+        static vk::DynamicLoader dl;
+        auto vkGetInstanceProcAddr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
+        VULKAN_HPP_DEFAULT_DISPATCHER.init(vkGetInstanceProcAddr);
 
         // populate required extensions, layers and features fields
         m_required_instance_extensions = window->getRequiredExtensions();
@@ -84,12 +64,21 @@ namespace lab {
             m_required_instance_layers.push_back("VK_LAYER_KHRONOS_validation");
             m_required_instance_layers.push_back("VK_LAYER_KHRONOS_synchronization2");
         }
+        m_required_instance_extensions.push_back(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
 
         m_required_device_extensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
+        m_required_device_extensions.push_back(VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME);
+        // dependencies for VK_KHR_dynamic_rendering
+        m_required_device_extensions.push_back(VK_KHR_MAINTENANCE2_EXTENSION_NAME);
+        m_required_device_extensions.push_back(VK_KHR_MULTIVIEW_EXTENSION_NAME);
+        m_required_device_extensions.push_back(VK_KHR_CREATE_RENDERPASS_2_EXTENSION_NAME);
+        m_required_device_extensions.push_back(VK_KHR_DEPTH_STENCIL_RESOLVE_EXTENSION_NAME);
         m_required_device_features.geometryShader = true;
 
         // create instance, debug messenger, surface, physical device
         m_instance = createInstance();
+        // initialize function pointers for instance
+        VULKAN_HPP_DEFAULT_DISPATCHER.init( m_instance );
         if (m_enable_validation_layers) {
             m_debug_messenger = createDebugMessenger();
         }
@@ -104,23 +93,42 @@ namespace lab {
         }
         std::array<vk::Queue, 4> queue_holder{};
         std::tie(m_device, queue_holder) = createDeviceAndQueues();
+        // function pointer specialization for device
+        VULKAN_HPP_DEFAULT_DISPATCHER.init( m_device );
         for (size_t i = 0; i < m_device_queues.size(); ++i) {
             m_device_queues[i].queue = queue_holder[i];
         }
 
+        // init upload context
+        vk::CommandPoolCreateInfo upload_command_pool_create_info{vk::CommandPoolCreateFlags(), m_device_queues[eGraphics].family_index};
+        m_upload_context.command_pool = get().createCommandPool(upload_command_pool_create_info);
+        vk::CommandBufferAllocateInfo cmdBufferAllocateInfo{
+                m_upload_context.command_pool,
+                vk::CommandBufferLevel::ePrimary,
+                1
+        };
+        m_upload_context.command_buffer = get().allocateCommandBuffers(cmdBufferAllocateInfo)[0];
+        vk::FenceCreateInfo upload_fence_create_info{vk::FenceCreateFlags()};
+        m_upload_context.upload_fence = get().createFence(upload_fence_create_info);
+        get().resetFences(m_upload_context.upload_fence);
+
+        // create allocator
         m_allocator = createAllocator();
 
         ErrorLogger::log("GraphicsDevice", "Initialized");
     }
 
     GraphicsDevice::~GraphicsDevice() {
+        m_device.waitIdle();
+
+        m_device.destroyFence(m_upload_context.upload_fence);
+        m_device.destroyCommandPool(m_upload_context.command_pool);
         vmaDestroyAllocator(m_allocator);
+
         m_device.destroy();
         m_instance.destroySurfaceKHR(m_surface);
         if (m_debug_messenger) {
-            DestroyDebugUtilsMessengerEXT(
-                    m_instance, static_cast<VkDebugUtilsMessengerEXT>(m_debug_messenger),
-                    nullptr);
+            m_instance.destroyDebugUtilsMessengerEXT(m_debug_messenger);
         }
         m_instance.destroy();
 
@@ -129,17 +137,21 @@ namespace lab {
 
     bool GraphicsDevice::checkInstanceExtensions(
             const std::vector<const char *> &extensions) {
+
+        std::vector<vk::ExtensionProperties> available =
+                vk::enumerateInstanceExtensionProperties();
+
         return check_required_available_strings<const char *,
                 vk::ExtensionProperties>(
-                extensions, [](const char *extension) { return extension; },
-                vk::enumerateInstanceExtensionProperties(),
+                extensions, [](const char *extension) { return extension; }, available,
                 [](const vk::ExtensionProperties &extension) {
                     return extension.extensionName;
                 });
     }
 
-    bool GraphicsDevice::checkInstanceLayers(
-            const std::vector<const char *> &layers) {
+    bool GraphicsDevice::checkInstanceLayers(const std::vector<const char *> &layers) {
+        std::vector<vk::LayerProperties> available_layer_properties = vk::enumerateInstanceLayerProperties();
+
         return check_required_available_strings<const char *, vk::LayerProperties>(
                 layers, [](const char *layer) { return layer; },
                 vk::enumerateInstanceLayerProperties(),
@@ -161,14 +173,19 @@ namespace lab {
 
         vk::ApplicationInfo app_info{"Lab Engine", VK_MAKE_VERSION(1, 0, 0),
                                      "No Engine", VK_MAKE_VERSION(1, 0, 0),
-                                     VK_API_VERSION_1_3, nullptr};
+                                     VK_API_VERSION_1_0, nullptr};
 
         const bool layers_available = checkInstanceLayers(m_required_instance_layers);
         const bool extensions_available = checkInstanceExtensions(m_required_instance_extensions);
 
-        if (!layers_available || !extensions_available) {
-            ErrorLogger::logFatalError("GraphicsDevice","Required layers or extensions are not available");
+        if(!layers_available) {
+            ErrorLogger::logFatalError("GraphicsDevice","Required instance layers not available");
         }
+        if(!extensions_available) {
+            ErrorLogger::logFatalError("GraphicsDevice","Required instance extensions not available");
+        }
+
+
 
         vk::InstanceCreateInfo instance_info{{},
                                              &app_info,
@@ -190,16 +207,7 @@ namespace lab {
                 validation_layer_callback,
                 nullptr};
 
-        VkDebugUtilsMessengerEXT debug_messenger;
-        VkResult result = CreateDebugUtilsMessengerEXT(
-                m_instance,
-                reinterpret_cast<VkDebugUtilsMessengerCreateInfoEXT *>(&create_info),
-                nullptr, &debug_messenger);
-
-        if (result != VK_SUCCESS) {
-            ErrorLogger::logFatalError("GraphicsDevice","Failed to set up debug messenger");
-        }
-
+        VkDebugUtilsMessengerEXT debug_messenger = m_instance.createDebugUtilsMessengerEXT(create_info);
         return debug_messenger;
     }
 
@@ -246,7 +254,7 @@ namespace lab {
     bool GraphicsDevice::checkDeviceFeatures(
             vk::PhysicalDevice physical_device,
             vk::PhysicalDeviceFeatures required_device_features) {
-        VkPhysicalDeviceFeatures supported_features = physical_device.getFeatures();
+        vk::PhysicalDeviceFeatures supported_features = physical_device.getFeatures();
         auto check = [](bool required, bool supported) {
             return !required || supported;
         };
@@ -471,20 +479,15 @@ namespace lab {
             queue_create_infos[i++] = vk::DeviceQueueCreateInfo{{}, family_index, queue_priorities};
         }
 
-        // TODO: implement checking for 1.3 features
-
-        vk::PhysicalDeviceVulkan13Features required_vulkan_13_features{};
-        required_vulkan_13_features.dynamicRendering = VK_TRUE;
-        vk::PhysicalDeviceFeatures2 device_features{};
-        device_features.features = m_required_device_features;
-        device_features.pNext = &required_vulkan_13_features;
-
         vk::DeviceCreateInfo device_info{{},
                                          queue_create_infos,
                                          m_required_instance_layers,
                                          m_required_device_extensions,
                                          nullptr};
-        device_info.pNext = &device_features;
+
+        vk::PhysicalDeviceDynamicRenderingFeaturesKHR dynamic_rendering_features{true};
+        device_info.pNext = &dynamic_rendering_features;
+
         vk::Device device = m_physical_device.createDevice(device_info);
 
         std::array<vk::Queue, 4> queues{};
@@ -499,19 +502,38 @@ namespace lab {
     }
 
     VmaAllocator GraphicsDevice::createAllocator() const {
-        VmaAllocatorCreateInfo allocatorInfo{};
-        allocatorInfo.physicalDevice = m_physical_device;
-        allocatorInfo.device = m_device;
-        allocatorInfo.instance = m_instance;
+        VmaAllocatorCreateInfo allocator_info{};
+        allocator_info.physicalDevice = m_physical_device;
+        allocator_info.device = m_device;
+        allocator_info.instance = m_instance;
 
         VmaVulkanFunctions func = {};
         func.vkGetInstanceProcAddr = vkGetInstanceProcAddr;
         func.vkGetDeviceProcAddr = vkGetDeviceProcAddr;
-        allocatorInfo.pVulkanFunctions = &func;
+        allocator_info.pVulkanFunctions = &func;
 
         VmaAllocator allocator;
-        vmaCreateAllocator(&allocatorInfo, &allocator);
+        vmaCreateAllocator(&allocator_info, &allocator);
         return allocator;
+    }
+
+    void GraphicsDevice::immediateSubmit(std::function<void(vk::CommandBuffer cmd)> &&function) const {
+        auto& cmd = m_upload_context.command_buffer;
+        vk::CommandBufferBeginInfo cmd_begin_info{vk::CommandBufferUsageFlagBits::eOneTimeSubmit, nullptr};
+
+        cmd.begin(cmd_begin_info);
+        function(cmd);
+        cmd.end();
+        vk::SubmitInfo submit_info{nullptr, nullptr, cmd, nullptr};
+
+        m_device_queues[QueueType::eGraphics].queue.submit(submit_info, m_upload_context.upload_fence);
+        const auto fence_wait_result = get().waitForFences(m_upload_context.upload_fence, true, 10'000'000'000);
+        if (fence_wait_result!=vk::Result::eSuccess) {
+            ErrorLogger::logFatalError("GraphicsDevice","Fence wait failed on immediate submit");
+        }
+
+        get().resetFences(m_upload_context.upload_fence);
+        get().resetCommandPool(m_upload_context.command_pool);
     }
 
 } // namespace lab

@@ -86,7 +86,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"assimp-dev\" \"libassimp5.2.5-dev\" \"meshoptimizer\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -174,6 +174,30 @@ render_engine_lib/fast:
 	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/build
 .PHONY : render_engine_lib/fast
 
+src/camera.obj: src/camera.cpp.obj
+.PHONY : src/camera.obj
+
+# target to build an object file
+src/camera.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.obj
+.PHONY : src/camera.cpp.obj
+
+src/camera.i: src/camera.cpp.i
+.PHONY : src/camera.i
+
+# target to preprocess a source file
+src/camera.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.i
+.PHONY : src/camera.cpp.i
+
+src/camera.s: src/camera.cpp.s
+.PHONY : src/camera.s
+
+# target to generate assembly for a file
+src/camera.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/camera.cpp.s
+.PHONY : src/camera.cpp.s
+
 src/error_logger.obj: src/error_logger.cpp.obj
 .PHONY : src/error_logger.obj
 
@@ -197,6 +221,30 @@ src/error_logger.s: src/error_logger.cpp.s
 src/error_logger.cpp.s:
 	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/error_logger.cpp.s
 .PHONY : src/error_logger.cpp.s
+
+src/gpu_resource_manager.obj: src/gpu_resource_manager.cpp.obj
+.PHONY : src/gpu_resource_manager.obj
+
+# target to build an object file
+src/gpu_resource_manager.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.obj
+.PHONY : src/gpu_resource_manager.cpp.obj
+
+src/gpu_resource_manager.i: src/gpu_resource_manager.cpp.i
+.PHONY : src/gpu_resource_manager.i
+
+# target to preprocess a source file
+src/gpu_resource_manager.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.i
+.PHONY : src/gpu_resource_manager.cpp.i
+
+src/gpu_resource_manager.s: src/gpu_resource_manager.cpp.s
+.PHONY : src/gpu_resource_manager.s
+
+# target to generate assembly for a file
+src/gpu_resource_manager.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/gpu_resource_manager.cpp.s
+.PHONY : src/gpu_resource_manager.cpp.s
 
 src/graphics_device.obj: src/graphics_device.cpp.obj
 .PHONY : src/graphics_device.obj
@@ -270,6 +318,30 @@ src/math.cpp.s:
 	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/math.cpp.s
 .PHONY : src/math.cpp.s
 
+src/model.obj: src/model.cpp.obj
+.PHONY : src/model.obj
+
+# target to build an object file
+src/model.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.obj
+.PHONY : src/model.cpp.obj
+
+src/model.i: src/model.cpp.i
+.PHONY : src/model.i
+
+# target to preprocess a source file
+src/model.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.i
+.PHONY : src/model.cpp.i
+
+src/model.s: src/model.cpp.s
+.PHONY : src/model.s
+
+# target to generate assembly for a file
+src/model.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/model.cpp.s
+.PHONY : src/model.cpp.s
+
 src/render_engine.obj: src/render_engine.cpp.obj
 .PHONY : src/render_engine.obj
 
@@ -318,6 +390,30 @@ src/swapchain.cpp.s:
 	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/swapchain.cpp.s
 .PHONY : src/swapchain.cpp.s
 
+src/vma_implementation.obj: src/vma_implementation.cpp.obj
+.PHONY : src/vma_implementation.obj
+
+# target to build an object file
+src/vma_implementation.cpp.obj:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.obj
+.PHONY : src/vma_implementation.cpp.obj
+
+src/vma_implementation.i: src/vma_implementation.cpp.i
+.PHONY : src/vma_implementation.i
+
+# target to preprocess a source file
+src/vma_implementation.cpp.i:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.i
+.PHONY : src/vma_implementation.cpp.i
+
+src/vma_implementation.s: src/vma_implementation.cpp.s
+.PHONY : src/vma_implementation.s
+
+# target to generate assembly for a file
+src/vma_implementation.cpp.s:
+	cd /d C:\code\lab\cmake-build-mingw && $(MAKE) $(MAKESILENT) -f render_engine\CMakeFiles\render_engine_lib.dir\build.make render_engine/CMakeFiles/render_engine_lib.dir/src/vma_implementation.cpp.s
+.PHONY : src/vma_implementation.cpp.s
+
 src/window.obj: src/window.cpp.obj
 .PHONY : src/window.obj
 
@@ -355,9 +451,15 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... render_engine_lib
+	@echo ... src/camera.obj
+	@echo ... src/camera.i
+	@echo ... src/camera.s
 	@echo ... src/error_logger.obj
 	@echo ... src/error_logger.i
 	@echo ... src/error_logger.s
+	@echo ... src/gpu_resource_manager.obj
+	@echo ... src/gpu_resource_manager.i
+	@echo ... src/gpu_resource_manager.s
 	@echo ... src/graphics_device.obj
 	@echo ... src/graphics_device.i
 	@echo ... src/graphics_device.s
@@ -367,12 +469,18 @@ help:
 	@echo ... src/math.obj
 	@echo ... src/math.i
 	@echo ... src/math.s
+	@echo ... src/model.obj
+	@echo ... src/model.i
+	@echo ... src/model.s
 	@echo ... src/render_engine.obj
 	@echo ... src/render_engine.i
 	@echo ... src/render_engine.s
 	@echo ... src/swapchain.obj
 	@echo ... src/swapchain.i
 	@echo ... src/swapchain.s
+	@echo ... src/vma_implementation.obj
+	@echo ... src/vma_implementation.i
+	@echo ... src/vma_implementation.s
 	@echo ... src/window.obj
 	@echo ... src/window.i
 	@echo ... src/window.s

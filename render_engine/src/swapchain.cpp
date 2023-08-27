@@ -8,7 +8,10 @@
 
 namespace lab {
 
-    Swapchain::Swapchain(std::shared_ptr<GraphicsDevice> device, vk::Extent2D window_framebuffer_extent, std::shared_ptr<Swapchain> old_swapchain)
+    Swapchain::Swapchain(std::shared_ptr<GraphicsDevice> device,
+                         vk::Extent2D window_framebuffer_extent,
+                         bool force_vsync,
+                         std::shared_ptr<Swapchain> old_swapchain)
             : m_device{std::move(device)}, m_old_swapchain{
             std::move(old_swapchain)} {
         vk::PhysicalDevice physical_device = m_device->physicalDevice();
@@ -23,8 +26,8 @@ namespace lab {
 
         vk::SurfaceFormatKHR surface_format = Swapchain::chooseSurfaceFormat(available_surface_formats);
         m_color_format = surface_format.format;
-        m_depth_format = Swapchain::chooseDepthFormat(m_device->physicalDevice());
-        vk::PresentModeKHR present_mode = Swapchain::choosePresentMode(available_present_modes, true);
+        m_depth_stencil_format = Swapchain::chooseDepthStencilFormat(m_device->physicalDevice());
+        vk::PresentModeKHR present_mode = Swapchain::choosePresentMode(available_present_modes, force_vsync);
         m_extent = Swapchain::chooseSwapchainExtent(surface_capabilities, window_framebuffer_extent);
 
         m_swapchain = createSwapchain(m_extent, surface_format, surface_capabilities, present_mode);
@@ -33,7 +36,7 @@ namespace lab {
 
         m_images = m_device->get().getSwapchainImagesKHR(m_swapchain);
         m_image_views = createSwapchainImageViews(surface_format.format);
-        m_depth_image = createDepthImage(m_extent, m_depth_format);
+        m_depth_stencil_image = createDepthStencilImage(m_extent, m_depth_stencil_format);
 
         ErrorLogger::log("Swapchain", "Initialized");
     }
@@ -41,8 +44,9 @@ namespace lab {
     Swapchain::~Swapchain() {
 
         // Cleanup the swapchain framebuffer
-        m_device->get().destroy(m_depth_image.image_view);
-        vmaDestroyImage(m_device->allocator(), m_depth_image.image, m_depth_image.allocation);
+        m_device->get().destroy(m_depth_stencil_image.image_view);
+        vmaDestroyImage(m_device->allocator(),m_depth_stencil_image.image,
+                        m_depth_stencil_image.allocation);
 
         for (auto &image_view : m_image_views) m_device->get().destroy(image_view);
         for (auto &framebuffer : m_framebuffer) m_device->get().destroy(framebuffer);
@@ -58,7 +62,7 @@ namespace lab {
                                     vk::SurfaceCapabilitiesKHR surface_capabilities,
                                     vk::PresentModeKHR present_mode) const {
 
-        uint32_t image_count = surface_capabilities.minImageCount + 1;
+        uint32_t image_count = std::max(surface_capabilities.minImageCount, 3u);
 
         // Clamp image_count to max images if there is no cap on the maximum image [0 means no cap]
         if ((surface_capabilities.maxImageCount > 0) && (image_count > surface_capabilities.maxImageCount)) {
@@ -116,11 +120,11 @@ namespace lab {
     }
 
 
-    AllocatedImage Swapchain::createDepthImage(vk::Extent2D extent, vk::Format depth_format) const {
+    AllocatedImage Swapchain::createDepthStencilImage(vk::Extent2D extent, vk::Format depth_format) const {
 
         AllocatedImage depth_image{};
 
-        VkImageCreateInfo depth_image_create_info =
+        auto depth_image_create_info = static_cast<VkImageCreateInfo>(
                 vk::ImageCreateInfo{{},
                                     vk::ImageType::e2D,
                                     depth_format,
@@ -132,7 +136,7 @@ namespace lab {
                                     vk::ImageUsageFlagBits::eDepthStencilAttachment,
                                     vk::SharingMode::eExclusive,
                                     m_device->queue(ePresent).family_index,
-                                    vk::ImageLayout::eUndefined};
+                                    vk::ImageLayout::eUndefined});
 
         VmaAllocationCreateInfo depth_image_alloc_info = {};
         depth_image_alloc_info.usage = VMA_MEMORY_USAGE_GPU_ONLY;
@@ -159,7 +163,7 @@ namespace lab {
 
     vk::ResultValue<uint32_t>
     Swapchain::acquireNextImage(vk::Semaphore image_available_semaphore) {
-        uint32_t acquired_image_index = -1;
+        uint32_t acquired_image_index = std::numeric_limits<uint32_t>::max();
         // we use the C version as vulkan_hpp throws an exception at
         // VK_SWAPCHAIN_OUT_OF_DATE_KHR
         auto result = static_cast<vk::Result>(vkAcquireNextImageKHR(
@@ -173,7 +177,7 @@ namespace lab {
         return {result, acquired_image_index};
     }
 
-    vk::RenderingAttachmentInfo Swapchain::colorAttachmentInfo(size_t image_index, vk::ClearColorValue clear_color) const {
+    vk::RenderingAttachmentInfoKHR Swapchain::colorAttachmentInfo(size_t image_index, vk::ClearColorValue clear_color) const {
         return vk::RenderingAttachmentInfo{
             m_image_views[image_index],
             vk::ImageLayout::eColorAttachmentOptimal,
@@ -183,9 +187,19 @@ namespace lab {
             clear_color};
     }
 
-    vk::RenderingAttachmentInfo Swapchain::depthAttachmentInfo() const {
+    vk::RenderingAttachmentInfoKHR Swapchain::noClearColorAttachmentInfo(size_t image_index) const {
         return vk::RenderingAttachmentInfo{
-            m_depth_image.image_view,
+                m_image_views[image_index],
+                vk::ImageLayout::eColorAttachmentOptimal,
+                vk::ResolveModeFlagBits::eNone, {}, {},
+                vk::AttachmentLoadOp::eDontCare,
+                vk::AttachmentStoreOp::eDontCare,
+                vk::ClearColorValue{std::array<float, 4>{0.f, 0.f, 0.f, 1.f}}};
+    }
+
+    vk::RenderingAttachmentInfoKHR Swapchain::depthStencilAttachmentInfo() const {
+        return vk::RenderingAttachmentInfo{
+            m_depth_stencil_image.image_view,
             vk::ImageLayout::eDepthStencilAttachmentOptimal,
             vk::ResolveModeFlagBits::eNone, {}, {},
             vk::AttachmentLoadOp::eClear,
@@ -209,7 +223,7 @@ namespace lab {
         }
 
         // clamp Extent to min and max swapchain extent
-        VkExtent2D actualExtent = window_framebuffer_extent;
+        vk::Extent2D actualExtent = window_framebuffer_extent;
         actualExtent.width = std::clamp(actualExtent.width, minExtent.width, maxExtent.width);
         actualExtent.height = std::clamp(actualExtent.height, minExtent.height, maxExtent.height);
         return actualExtent;
@@ -248,9 +262,8 @@ vk::PresentModeKHR Swapchain::choosePresentMode(const std::vector<vk::PresentMod
     return vk::PresentModeKHR::eFifo;
 }
 
-vk::Format Swapchain::chooseDepthFormat(vk::PhysicalDevice physical_device) {
-    std::vector<vk::Format> candidates{vk::Format::eD32Sfloat,
-                                       vk::Format::eD24UnormS8Uint,
+vk::Format Swapchain::chooseDepthStencilFormat(vk::PhysicalDevice physical_device) {
+    std::vector<vk::Format> candidates{vk::Format::eD24UnormS8Uint,
                                        vk::Format::eD32SfloatS8Uint};
     for (vk::Format format : candidates) {
         auto formatProperties = physical_device.getFormatProperties(format);

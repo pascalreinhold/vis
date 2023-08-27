@@ -1,10 +1,7 @@
 #include "error_logger.hpp"
 
-#include <ctime>
 #include <iostream>
 #include <sstream>
-
-#define _CRT_SECURE_NO_WARNINGS 1
 
 namespace lab {
 
@@ -45,7 +42,7 @@ void ErrorLogger::logFatalError(std::string_view caller, std::string_view messag
         std::lock_guard<std::mutex> lock(logger.m_output_mutex);
 
         std::stringstream error_message;
-        error_message << caller << ": " << "Fatal Error" << message << "\n";
+        error_message << caller << ": " << "Fatal Error: " << message << "\n";
         error_message << "\tFile: " << location.file_name() << "\n";
         error_message << "\tLine: " << location.line() << "\n";
         error_message << "\tFunction: " << location.function_name() << "\n";

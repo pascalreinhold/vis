@@ -1,8 +1,8 @@
 #pragma once
 
-#include "vulkan_types.hpp"
 #include "handles.hpp"
 #include "math.hpp"
+#include "vulkan_include.hpp"
 
 #include <filesystem>
 
@@ -24,32 +24,36 @@ namespace lab {
             m_vertex_input_attribute_description = T::attributeDescriptions();
         }
 
+        void setVertexInputDescriptionEmpty();
         void setInputAssemblyStateCreateInfo(vk::PrimitiveTopology topology, bool primitive_restart_enable = false);
         void setDepthStencilStateCreateInfo(bool depth_test_enable = true, bool depth_write_enable = true,
                                             vk::CompareOp depth_compare_op = vk::CompareOp::eLess);
         void setRasterizationStateCreateInfo(
                 vk::PolygonMode polygon_mode = vk::PolygonMode::eFill,
-                vk::CullModeFlags cull_mode = vk::CullModeFlagBits::eBack,
+                vk::CullModeFlags cull_mode = vk::CullModeFlagBits::eNone,
                 vk::FrontFace front_face = vk::FrontFace::eCounterClockwise,
                 bool depth_clamp_enable = false, bool rasterizer_discard_enable = false,
                 bool depth_bias_enable = false, float depth_bias_constant_factor = 0.0f,
                 float depth_bias_clamp = 0.0f, float depth_bias_slope_factor = 0.0f,
                 float line_width = 1.0f);
+
         void setMultisampleStateCreateInfo(vk::SampleCountFlagBits sample_count = vk::SampleCountFlagBits::e1,
                                            bool sample_shading_enable = false, float min_sample_shading = 1.0f,
                                            vk::SampleMask *sample_mask = nullptr, bool alpha_to_coverage_enable = false,
                                            bool alpha_to_one_enable = false);
-        void setColorBlendAttachmentCreateInfo(bool blend_enable = false, vk::BlendFactor src_color_blend_factor = vk::BlendFactor::eOne,
+
+        void setColorBlendAttachmentCreateInfo(bool blend_enable = false, vk::BlendFactor src_color_blend_factor = vk::BlendFactor::eZero,
                                             vk::BlendFactor dst_color_blend_factor = vk::BlendFactor::eZero,
                                             vk::BlendOp color_blend_op = vk::BlendOp::eAdd,
-                                            vk::BlendFactor src_alpha_blend_factor = vk::BlendFactor::eOne,
+                                            vk::BlendFactor src_alpha_blend_factor = vk::BlendFactor::eZero,
                                             vk::BlendFactor dst_alpha_blend_factor = vk::BlendFactor::eZero,
                                             vk::BlendOp alpha_blend_op = vk::BlendOp::eAdd,
                                             vk::ColorComponentFlags color_write_mask = vk::ColorComponentFlagBits::eR |
                                                                                          vk::ColorComponentFlagBits::eG |
                                                                                          vk::ColorComponentFlagBits::eB |
                                                                                          vk::ColorComponentFlagBits::eA);
-        void setDepthFormat(vk::Format depth_format) { m_depth_format = depth_format; }
+
+        void setDepthStencilFormat(vk::Format depth_stencil_format) { m_depth_stencil_format = depth_stencil_format; }
         void setColorFormat(vk::Format color_format) { m_color_format = color_format; }
         void setViewportAndScissorCount(uint32_t viewport_count = 1, uint32_t scissor_count = 1);
 
@@ -61,10 +65,10 @@ namespace lab {
         vk::PipelineDepthStencilStateCreateInfo m_depth_stencil_state_create_info;
         vk::PipelineRasterizationStateCreateInfo m_rasterization_state_create_info;
         vk::PipelineMultisampleStateCreateInfo m_multisample_state_create_info;
+        vk::PipelineColorBlendAttachmentState m_color_blend_attachment_state;
         vk::PipelineColorBlendStateCreateInfo m_color_blend_state_create_info;
-        vk::Format m_depth_format{}, m_color_format{};
-        uint32_t m_viewport_count, m_scissor_count;
-
+        vk::Format m_depth_stencil_format{}, m_color_format{};
+        uint32_t m_viewport_count{}, m_scissor_count{};
 
         friend class GraphicsPipelineManager;
     };
@@ -88,7 +92,6 @@ namespace lab {
         [[nodiscard]] PipelineLayoutHandle createPipelineLayout(
                 const std::vector<vk::DescriptorSetLayout>& descriptor_set_layouts = {},
                 const std::vector<vk::PushConstantRange>& push_constant_ranges = {});
-
 
     private:
         [[nodiscard]] static vk::ShaderModule createShaderModule(const std::vector<char> &code, vk::Device device);

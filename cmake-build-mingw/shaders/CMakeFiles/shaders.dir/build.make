@@ -65,20 +65,27 @@ include shaders/CMakeFiles/shaders.dir/compiler_depend.make
 # Include the progress variables for this target.
 include shaders/CMakeFiles/shaders.dir/progress.make
 
-shaders/CMakeFiles/shaders: C:/code/lab/shaders/default_mesh_shader.frag.spv
-shaders/CMakeFiles/shaders: C:/code/lab/shaders/default_mesh_shader.vert.spv
+shaders/CMakeFiles/shaders: out/shaders/default_mesh_shader.frag.spv
+shaders/CMakeFiles/shaders: out/shaders/default_mesh_shader.vert.spv
 
-C:/code/lab/shaders/default_mesh_shader.frag.spv: C:/code/lab/shaders/default_mesh_shader.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C:/code/lab/shaders/default_mesh_shader.frag.spv"
-	cd /d C:\code\lab\cmake-build-mingw\shaders && glslc C:/code/lab/shaders//default_mesh_shader.frag -o C:/code/lab/shaders//default_mesh_shader.frag.spv
+out/shaders/default_mesh_shader.frag.spv: C:/code/lab/shaders/default_mesh_shader.frag
+out/shaders/default_mesh_shader.frag.spv: out/shaders
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../out/shaders/default_mesh_shader.frag.spv"
+	cd /d C:\code\lab\cmake-build-mingw\shaders && glslc C:/code/lab/shaders//default_mesh_shader.frag -o C:/code/lab/cmake-build-mingw/out/shaders//default_mesh_shader.frag.spv
 
-C:/code/lab/shaders/default_mesh_shader.vert.spv: C:/code/lab/shaders/default_mesh_shader.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C:/code/lab/shaders/default_mesh_shader.vert.spv"
-	cd /d C:\code\lab\cmake-build-mingw\shaders && glslc C:/code/lab/shaders//default_mesh_shader.vert -o C:/code/lab/shaders//default_mesh_shader.vert.spv
+out/shaders/default_mesh_shader.vert.spv: C:/code/lab/shaders/default_mesh_shader.vert
+out/shaders/default_mesh_shader.vert.spv: out/shaders
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../out/shaders/default_mesh_shader.vert.spv"
+	cd /d C:\code\lab\cmake-build-mingw\shaders && glslc C:/code/lab/shaders//default_mesh_shader.vert -o C:/code/lab/cmake-build-mingw/out/shaders//default_mesh_shader.vert.spv
 
+out/shaders:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\code\lab\cmake-build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../out/shaders"
+	cd /d C:\code\lab\cmake-build-mingw\shaders && C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -E make_directory C:/code/lab/cmake-build-mingw/out/shaders/
+
+shaders: out/shaders
+shaders: out/shaders/default_mesh_shader.frag.spv
+shaders: out/shaders/default_mesh_shader.vert.spv
 shaders: shaders/CMakeFiles/shaders
-shaders: C:/code/lab/shaders/default_mesh_shader.frag.spv
-shaders: C:/code/lab/shaders/default_mesh_shader.vert.spv
 shaders: shaders/CMakeFiles/shaders.dir/build.make
 .PHONY : shaders
 

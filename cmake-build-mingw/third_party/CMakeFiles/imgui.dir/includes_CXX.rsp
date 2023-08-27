@@ -1,0 +1,1 @@
+-IC:/code/lab/third_party/imgui -IC:/code/lab/third_party/imgui/backends -IC:/code/lab/third_party/glfw/include -isystem C:/VulkanSDK/1.3.250.1/Include

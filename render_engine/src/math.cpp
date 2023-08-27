@@ -11,7 +11,9 @@ namespace lab {
                 vk::VertexInputAttributeDescription{0,0,vk::Format::eR32G32B32Sfloat,
                                                     static_cast<uint32_t>(offsetof(Vertex, position))},
                 vk::VertexInputAttributeDescription{1,0,vk::Format::eR32G32B32Sfloat,
-                                                    static_cast<uint32_t>(offsetof(Vertex, normal))
+                                                    static_cast<uint32_t>(offsetof(Vertex, normal))},
+                vk::VertexInputAttributeDescription{2,0,vk::Format::eR32G32Sfloat,
+                                                    static_cast<uint32_t>(offsetof(Vertex, tex_coord))
                 }
         };
     }
