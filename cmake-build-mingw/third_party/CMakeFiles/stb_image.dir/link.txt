@@ -1,2 +1,0 @@
-C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\ar.exe qc libstb_imaged.a CMakeFiles/stb_image.dir/stb/stb_image.cpp.obj
-C:\Users\ich\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\mingw\bin\ranlib.exe libstb_imaged.a

@@ -1,7 +1,0 @@
-# Hashes of file build rules.
-814e7aa1f80fbd0c1d688ed4177a43bb out/shaders
-cdbad3afb2171cf0b028c68930dc870c out/shaders/default_mesh_shader.frag.spv
-922fe59ddeddffa786a18494ee81eed0 out/shaders/default_mesh_shader.vert.spv
-d00f631f61aba2ccf9fffa0b16a1c148 shaders/CMakeFiles/shaders
-84fe3c2c78826c1754743b99ad849b87 third_party/glfw/CMakeFiles/uninstall
-6f3e314698bfc15919fd15ec34b8042f third_party/glfw/src/CMakeFiles/update_mappings
